@@ -2,4 +2,17 @@ from django.contrib import admin
 
 from .models import Blog
 
-admin.site.register(Blog)
+
+class BlogAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,
+         {'fields': ['title', 'body', 'image']}),
+    ]
+
+    list_display = ('id', 'title', 'pub_date')
+    list_display_links = ('title',)
+    search_fields = ('title', 'body',)
+    ordering = ('id',)
+
+
+admin.site.register(Blog, BlogAdmin)
