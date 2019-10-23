@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {% load staticfiles %}
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -34,16 +36,16 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Ahmed Muqaddas</a>
+            <a class="navbar-brand active" href="{% url 'home' %}">Ahmed Muqaddas</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link" href="#">Twitter</a>
-                    <a class="nav-item nav-link" href="#">Resume</a>
-                    <a class="nav-item nav-link" href="#">Blog</a>
+                    <a class="nav-item nav-link" href="http://www.twitter.com">Twitter</a>
+                    <a class="nav-item nav-link" href="{% static 'AhmedMuqaddas-Resume.pdf' %}">Resume</a>
+                    <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
                 </div>
             </div>
         </nav>
@@ -58,6 +60,7 @@
                 <p>
                     <a href="#" class="btn btn-primary my-2">Email Me!</a>
                 </p>
+                <img src="{% static '71171326_513978495832104_2678752565436350464_n.jpg' %}" height="300" width="200"></img>
             </div>
         </section>
 
@@ -67,23 +70,23 @@
 
                     {% for job in jobs.all %}
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-{#                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"#}
-{#                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"#}
-{#                                 focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>#}
-{#                                Placeholder</title>#}
-{#                                <rect width="100%" height="100%" fill="#55595c"/>#}
-{#                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>#}
-{#                            </svg>#}
-                            <img class="card-img-top" src="{{ job.image.url }}" alt="">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    {{ job.summary }}
-                                </p>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                {#                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"#}
+                                {#                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"#}
+                                {#                                 focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>#}
+                                {#                                Placeholder</title>#}
+                                {#                                <rect width="100%" height="100%" fill="#55595c"/>#}
+                                {#                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>#}
+                                {#                            </svg>#}
+                                <img class="card-img-top" src="{{ job.image.url }}" alt="">
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        {{ job.summary }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     {% endfor %}
 
