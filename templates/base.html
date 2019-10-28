@@ -11,21 +11,13 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
 
-
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
         }
     </style>
 </head>
@@ -40,7 +32,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link {% if nav_bar_flag == 'blog' %}active{% endif %}" href="{% url 'allblogs' %}">
+                    <a class="nav-item nav-link {% if nav_bar_flag == 'blog' %}active{% endif %}"
+                       href="{% url 'allblogs' %}">
                         Blog
                     </a>
                     <a class="nav-item nav-link" href="{% static 'AhmedMuqaddas-Resume.pdf' %}">Resume</a>
@@ -52,10 +45,14 @@
     {% block main_content %}
     {% endblock %}
 
-    <footer class="text-muted">
-        <div class="container text-center">
-            <p>Copyright Ahmed Muqaddas {% now "Y" %}</p>
-        </div>
+    {#    <footer class="footer mt-auto text-muted fixed-bottom bg-dark">#}
+    {#        <div class="container text-center">#}
+    {#            <p>Copyright Ahmed Muqaddas {% now "Y" %}</p>#}
+    {#        </div>#}
+    {#    </footer>#}
+
+    <footer class="footer text-center text-light bg-dark">
+        <p>Ahmed Muqaddas {% now "Y" %}</p>
     </footer>
 
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
