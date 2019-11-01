@@ -1,36 +1,110 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block main_content %}
-    <main role="main">
-        <div class="jumbotron">
-            <div class="container">
-                <h1 class="display-4">Hi, I'm Ahmed!</h1>
-                <p class="lead">Hello There here is my portfolio</p>
-                <hr class="my-4">
-                <a href="#" class="btn btn-primary btn-lg">Email Me!</a>
-            </div>
-        </div>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row">
-
-                    {% for job in jobs.all %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <img class="card-img-top" src="{{ job.image.url }}" alt="">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        {{ job.summary }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-
+{% block header %}
+    <header class="masthead" style="background: #007bff; background: linear-gradient(to bottom, #0062E6, #33AEFF);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>Welcome Text Test!</h1>
+                        <span class="subheading">Hello There Welcome Test Test Test!</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </header>
+{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <!-- Page Heading -->
+        <h1 class="my-4 text-center">My Projects</h1>
+
+        <br>
+
+        <div class="row">
+            {% for job in jobs.all %}
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100 shadow">
+                        <a href="#"><img class="card-img-top" src="{{ job.image.url }}" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="#">project.title</a>
+                            </h4>
+                            <p class="card-text">{{ job.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project Two</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                            viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project Three</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                            quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus
+                            necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel
+                            quam!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project Four</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                            viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project Five</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                            viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project Six</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque
+                            earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate
+                            atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
 {% endblock %}

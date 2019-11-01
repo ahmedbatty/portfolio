@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block title %} Blog | Ahmed Muqaddas {% endblock %}
+
 {% block main_content %}
     <main role="main">
 
@@ -18,12 +20,38 @@
                 <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
                 <img class="img-fluid" src="{{ blog.image.url }}" alt="" height="200" width="200">
                 <p>{{ blog.summary }}</p>
-                <p>{{ blog.pub_date_pretty }}</p>
+                <p>{{ blog.pub_date|date:"M Y" }}</p>
 
                 <br>
             {% endfor %}
 
+            <a href="#"><h3>blog.title</h3></a>
+            <img class="img-fluid" src="http://placekitten.com/g/200/300" alt="" height="200" width="200">
+            <p>blog.summary</p>
+            <p>blog.pub_date_pretty</p>
+
+            <br>
+
+            <a href="#"><h3>blog.title</h3></a>
+            <img class="img-fluid" src="http://placekitten.com/g/200/300" alt="" height="200" width="200">
+            <p>blog.summary</p>
+            <p>blog.pub_date_pretty</p>
+
+            <br>
+
+            <a href="#"><h3>blog.title</h3></a>
+            <img class="img-fluid" src="http://placekitten.com/g/200/300" alt="" height="200" width="200">
+            <p>blog.summary</p>
+            <p>blog.pub_date_pretty</p>
+
+            <br>
+
         </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
 
     </main>
 {% endblock %}
