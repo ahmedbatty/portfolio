@@ -27,11 +27,11 @@
                             <h2 class="post-title">
                                 {{ blog.title }}
                             </h2>
-                            <h3 class="post-subtitle">
-                                {{ blog.summary }}
-                            </h3>
+                            <h4 class="post-subtitle" style="word-wrap: break-word;">
+                                {{ blog.summary|safe }}
+                            </h4>
                         </a>
-                        <p class="post-meta">{{ blog.pub_date|date:"M Y" }}</p>
+                        <p class="post-meta">{{ blog.pub_date_pretty }}</p>
                     </div>
                     <hr>
                 {% endfor %}

@@ -2,7 +2,11 @@
 {% load staticfiles %}
 
 {% block header %}
-    <header class="masthead" style="background-image: url('{{ blog.image.url }}')">
+    {% if blog.image %}
+        <header class="masthead" style="background-image: url('{{ blog.image.url }}')">
+    {% else %}
+        <header class="masthead" style="background: #007bff; background: linear-gradient(to bottom, #0062E6, #33AEFF);">
+    {% endif %}
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -22,8 +26,8 @@
     <article>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <p>{{ blog.body }}</p>
+                <div class="col-lg-8 col-md-10 mx-auto" style="word-wrap: break-word;">
+                    {{ blog.body|safe }}
                 </div>
             </div>
         </div>
