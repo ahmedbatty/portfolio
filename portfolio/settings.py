@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     'blog',
     'jobs',
+    'projects',
     'ckeditor',
     'ckeditor_uploader',
 ]
@@ -74,17 +75,6 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'portfoliodb',
-#         'USER': 'postgres',
-#         'PASSWORD': 'getsol123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 
 DATABASES = {
     'default': {

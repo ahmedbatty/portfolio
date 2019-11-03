@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.views import View
 
 from .models import Job
 
 
-def home(request):
-    jobs = Job.objects
+class HomeView(View):
+    def get(self, request):
+        jobs = Job.objects
 
-    return render(request, 'jobs/home.html', {'jobs': jobs})
+        return render(request, 'jobs/home.html', {'jobs': jobs})
