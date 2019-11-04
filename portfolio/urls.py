@@ -3,12 +3,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from jobs import views
+# from jobs import views
+from projects.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', views.HomeView.as_view(), name='home'),
+    path('', HomeView.as_view(), name='home'),
+
+    path('', include('projects.urls')),
 
     path('blog/', include('blog.urls')),
 

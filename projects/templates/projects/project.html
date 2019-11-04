@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+    <header class="masthead" style="background: #007bff; background: linear-gradient(to bottom, #0062E6, #33AEFF);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <h1>{{ project.title }}</h1>
+{#                        <h2 class="subheading">Some detail</h2>#}
+                        <span class="meta">{{ project.date_pretty }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block main_content %}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto" style="word-wrap: break-word;">
+                    {{ project.detail|safe }}
+
+                    <p>
+                        Built using: Django, REST Framework, HTML, CSS, etc etc etc
+                    </p>
+
+                    <p>
+                        Functionality
+                    </p>
+
+                    <p>
+                        Screenshots
+                    </p>
+
+                    <p>
+                        Links
+                    </p>
+
+                    <p>
+                        Other stuff
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

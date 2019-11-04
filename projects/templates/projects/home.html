@@ -25,15 +25,17 @@
         <br>
 
         <div class="row">
-            {% for job in jobs.all %}
+            {% for project in projects.all %}
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="card h-100 shadow">
-                        <a href="#"><img class="card-img-top" src="{{ job.image.url }}" alt=""></a>
+                        <a href="{% url 'project' project.id %}">
+                            <img class="card-img-top" src="{{ project.picture.url }}" alt="">
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#">project.title</a>
+                                <a href="{% url 'project' project.id %}">{{ project.title }}</a>
                             </h4>
-                            <p class="card-text">{{ job.summary }}</p>
+                            <p class="card-text">{{ project.summary }} ...</p>
                         </div>
                     </div>
                 </div>

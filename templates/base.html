@@ -32,7 +32,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Name</a>
+            <a class="navbar-brand" href="{% url 'home' %}">{{ about.name }}</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -45,16 +45,16 @@
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% static 'AhmedMuqaddas-Resume.pdf' %}">Resume</a>
+                        <a class="nav-link" href="{{ about.resume.url }}" target="_blank">Resume</a>
                     </li>
                 </ul>
             </div>
@@ -102,7 +102,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; <strong>Ahmed Muqaddas</strong> {% now "Y" %}</p>
+                    <p class="copyright text-muted">Copyright &copy; <strong>{{ about.name }}</strong> {% now "Y" %}</p>
                 </div>
             </div>
         </div>
@@ -111,6 +111,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    {% block scripts %}
+    {% endblock %}
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/clean-blog/clean-blog.min.js' %}"></script>
