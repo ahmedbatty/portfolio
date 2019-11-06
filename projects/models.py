@@ -1,9 +1,10 @@
 from django.db import models
+from django.utils.html import format_html
 
 
 class AboutPerson(models.Model):
     name = models.CharField(max_length=100)
-    picture = models.ImageField(upload_to='images/', blank=True)
+    image = models.ImageField(upload_to='images/', blank=True)
     resume = models.FileField(upload_to='resume/')
     about = models.TextField(max_length=5000)
     is_active = models.BooleanField(default=True)
@@ -11,10 +12,16 @@ class AboutPerson(models.Model):
     def __str__(self):
         return self.name
 
+    def about_image_thumbnail(self):
+        img = f'{self.image.url}' if self.image else 'No Thumbnail!'
+        style = ''
+
+        return format_html(f'<img style="{style}" src="{img}" alt="{img}" width="200" height="200">')
+
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
-    picture = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
     date = models.DateField()
     detail = models.TextField(max_length=3000)
     is_active = models.BooleanField(default=True)
@@ -27,3 +34,9 @@ class Project(models.Model):
 
     def date_pretty(self):
         return self.date.strftime('%B, %Y')
+
+    def project_image_thumbnail(self):
+        img = f'{self.image.url}' if self.image else 'No Thumbnail!'
+        style = ''
+
+        return format_html(f'<img style="{style}" src="{img}" alt="{img}" width="560" height="360">')
