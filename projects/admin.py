@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import AboutPerson, Project
+from .models import AboutPerson, PersonSocialMedia, Project
 
 
 class AboutPersonAdmin(admin.ModelAdmin):
@@ -13,6 +13,17 @@ class AboutPersonAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'is_active')
     list_display_links = ('name',)
     search_fields = ('name',)
+    ordering = ('id',)
+
+
+class PersonSocialMediaAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,
+         {'fields': ['social_media', 'url', 'is_active']}),
+    ]
+
+    list_display = ('id', 'social_media', 'url')
+    list_display_links = ('social_media',)
     ordering = ('id',)
 
 
@@ -30,4 +41,5 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(AboutPerson, AboutPersonAdmin)
+admin.site.register(PersonSocialMedia, PersonSocialMediaAdmin)
 admin.site.register(Project, ProjectAdmin)

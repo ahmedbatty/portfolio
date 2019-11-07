@@ -19,6 +19,32 @@ class AboutPerson(models.Model):
         return format_html(f'<img style="{style}" src="{img}" alt="{img}" width="200" height="200">')
 
 
+class PersonSocialMedia(models.Model):
+    GITHUB = 'github'
+    FACEBOOK = 'facebook-f'
+    TWITTER = 'twitter'
+    REDDIT = 'reddit-alien'
+    LINKEDIN = 'linkedin-in'
+    INSTAGRAM = 'instagram'
+    YOUTUBE = 'youtube'
+    SOCIAL_MEDIA_TYPES = (
+        (GITHUB, 'GitHub'),
+        (FACEBOOK, 'Facebook'),
+        (TWITTER, 'Twitter'),
+        (REDDIT, 'Reddit'),
+        (LINKEDIN, 'LinkedIn'),
+        (INSTAGRAM, 'Instagram'),
+        (YOUTUBE, 'YouTube')
+    )
+
+    social_media = models.CharField(max_length=20, choices=SOCIAL_MEDIA_TYPES)
+    url = models.CharField(max_length=500)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.social_media
+
+
 class Project(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
