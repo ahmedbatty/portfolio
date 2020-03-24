@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.html import format_html
 
 
+# About model for the person who owns the portfolio, only 1 person should be allowed
 class AboutPerson(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/', blank=True)
@@ -19,6 +20,7 @@ class AboutPerson(models.Model):
         return format_html(f'<img style="{style}" src="{img}" alt="{img}" width="200" height="200">')
 
 
+# Model for Social Media links of the above person, choices are Font Awesome icons
 class PersonSocialMedia(models.Model):
     GITHUB = 'github'
     FACEBOOK = 'facebook-f'
@@ -45,6 +47,7 @@ class PersonSocialMedia(models.Model):
         return self.social_media
 
 
+# Model for projects of the person to display
 class Project(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')

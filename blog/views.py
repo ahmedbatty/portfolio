@@ -5,6 +5,7 @@ from .models import Blog
 from projects.models import AboutPerson, PersonSocialMedia
 
 
+# View for all blog posts
 class BlogView(View):
     def get(self, request):
         about = AboutPerson.objects.get(pk=1)
@@ -16,6 +17,7 @@ class BlogView(View):
         return render(request, template_name='blog/blog.html', context=context)
 
 
+# View for one blog post
 class BlogPostView(View):
     def get(self, request, blog_id):
         about = AboutPerson.objects.get(pk=1)
