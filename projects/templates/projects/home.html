@@ -28,12 +28,12 @@
             {% for project in projects.all %}
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="card h-100 shadow">
-                        <a href="{% url 'project' project.id %}">
+                        <a href="{% url 'project' project.id project.slug %}">
                             <img class="card-img-top" src="{{ project.image.url }}" alt="">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="{% url 'project' project.id %}">{{ project.title }}</a>
+                                <a href="{% url 'project' project.id project.slug %}">{{ project.title }}</a>
                             </h4>
                             <p class="card-text">{{ project.summary }} ...</p>
                         </div>

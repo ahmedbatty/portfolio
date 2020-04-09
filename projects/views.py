@@ -16,7 +16,7 @@ class HomeView(View):
 
 
 class ProjectView(View):
-    def get(self, request, project_id):
+    def get(self, request, project_id, project_slug):
         about = AboutPerson.objects.get(pk=1)
         social_medias = PersonSocialMedia.objects.all()
         project = get_object_or_404(Project, pk=project_id)

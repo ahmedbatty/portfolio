@@ -25,7 +25,7 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 {% for blog in blogs.all %}
                     <div class="post-preview">
-                        <a href="{% url 'post' blog.id %}">
+                        <a href="{% url 'post' blog.id blog.slug %}">
                             <h2 class="post-title">
                                 {{ blog.title }}
                             </h2>

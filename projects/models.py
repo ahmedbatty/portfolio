@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
+from django.utils.text import slugify
 
 
 # About model for the person who owns the portfolio, only 1 person should be allowed
@@ -50,6 +51,7 @@ class PersonSocialMedia(models.Model):
 # Model for projects of the person to display
 class Project(models.Model):
     title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, null=True, blank=True)
     image = models.ImageField(upload_to='images/')
     date = models.DateField()
     detail = models.TextField(max_length=3000)
@@ -57,6 +59,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Project, self).save(*args, **kwargs)
 
     def summary(self):
         return self.detail[:100]
