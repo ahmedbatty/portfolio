@@ -36,3 +36,9 @@ python3 manage.py runserver
 - Bootstrap
 - CKEditor
 - [Start Bootstrap Clean Blog theme](https://startbootstrap.com/themes/clean-blog/)
+
+#### Things to do
+- Complete contact form, use django-contact-form
+- Add CK Editor in project model
+- Blog: if image exists, show in header, otherwise show gradient
+- re-evaluate models: URLs, admin
