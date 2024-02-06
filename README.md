@@ -38,7 +38,7 @@ python3 manage.py runserver
 - [Start Bootstrap Clean Blog theme](https://startbootstrap.com/themes/clean-blog/)
 
 #### Things to do
-- Complete contact form, use django-contact-form
+- Complete contact form, use [django-contact-form](https://django-contact-form.readthedocs.io/en/latest/)
 - Add CK Editor in project model
 - Blog: if image exists, show in header, otherwise show gradient, add color selector for gradient
 - re-evaluate models: URLs, admin
