@@ -5,6 +5,7 @@ from django.utils.text import slugify
 
 # About model for the person who owns the portfolio, only 1 person should be allowed
 class AboutPerson(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/', blank=True)
     resume = models.FileField(upload_to='resume/')
@@ -40,6 +41,7 @@ class PersonSocialMedia(models.Model):
         (YOUTUBE, 'YouTube')
     )
 
+    id = models.AutoField(primary_key=True)
     social_media = models.CharField(max_length=20, choices=SOCIAL_MEDIA_TYPES)
     url = models.CharField(max_length=500)
     is_active = models.BooleanField(default=True)
@@ -50,6 +52,7 @@ class PersonSocialMedia(models.Model):
 
 # Model for projects of the person to display
 class Project(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, null=True, blank=True)
     image = models.ImageField(upload_to='images/')

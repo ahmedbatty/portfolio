@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 
 # Model for blog post
 class Blog(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, null=True, blank=True)
     body = RichTextField(blank=False)
